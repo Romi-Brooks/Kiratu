@@ -39,7 +39,7 @@ void AudioBlocksAdd() {
     string InputBlockName;
     cout << "Name of the new Audio Block:";
     cin >> InputBlockName;
-    // 创建一个新的音频块对象并存储到向量中
+
 //    // test
 //    int a = 0;
 //    while (a < 100) {
@@ -48,9 +48,11 @@ void AudioBlocksAdd() {
 //        cout << "Audio Block named " << InputBlockName << "was successfully created" << endl;
 //        a++;
 //    }
+
+    // 创建一个新的音频块对象并存储到向量中
     AudioBlocks userAudioBlock(InputBlockName);
     Blocks.push_back(userAudioBlock);
-    cout << "Audio Block named " << InputBlockName << "was successfully created" << endl;
+    cout << "Audio Block named " << InputBlockName << " was successfully created" << endl;
 }
 
 // Set AudioBlocks Volume:

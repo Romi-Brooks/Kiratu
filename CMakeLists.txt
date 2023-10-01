@@ -8,4 +8,10 @@ add_executable(Kiratu.cpp
         KiratuBasic/AudioBlocks.h
         KiratuIO/TerminalConsole.h
         KiratuIO/TerminalConsole.cpp
-        Kiratu.cpp)
+        Kiratu.cpp
+        KiratuBasic/AudioMixer.cpp
+        KiratuBasic/AudioMixer.h
+        KiratuBasic/AudioEffector.cpp
+        KiratuBasic/AudioEffector.h
+        KiratuPlugin/Plugin.cpp
+        KiratuPlugin/Plugin.h)

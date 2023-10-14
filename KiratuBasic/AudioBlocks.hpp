@@ -37,7 +37,10 @@ private:
     int BlockPan;
 };
 
+// Store all Audio Blocks
+// Avoid multiple definitions, use extern
 // 存放所有的音频块
-std::vector<AudioBlocks> Blocks;
+// 避免多次定义,使用extern
+extern std::vector<AudioBlocks> Blocks;
 
 #endif //KIRATU_AUDIOBLOCKS_HPP

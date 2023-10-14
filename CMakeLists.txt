@@ -21,4 +21,6 @@ add_executable(Kiratu.cpp
         KiratuBasic/Core/CoreEngine.hpp
         KiratuBasic/Core/AudioProcesser.cpp
         KiratuBasic/Core/AudioProcesser.hpp
+        KiratuIO/LogSystem.cpp
+        KiratuIO/LogSystem.hpp
 )

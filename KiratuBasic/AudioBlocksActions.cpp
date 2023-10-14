@@ -10,7 +10,6 @@ void AudioBlocksAdd() {
     std::string InputBlockName;
     std::cout << "Name of the new Audio Block:";
     std::cin >> InputBlockName;
-
     // 创建一个新的音频块对象并存储到向量中
     AudioBlocks userAudioBlock(InputBlockName);
     Blocks.push_back(std::move(userAudioBlock));

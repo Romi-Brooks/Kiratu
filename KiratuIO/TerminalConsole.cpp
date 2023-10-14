@@ -2,79 +2,83 @@
 // Created by romi on 23-10-1.
 //
 
-#include "../KiratuBasic/AudioBlocks.h"
 #include <iostream>
 #include "string"
-using namespace std;
+#include "../KiratuBasic/AudioBlocksActions.hpp"
+
 
 // Welcome Message:
-void PrintMessage(string message, int width, int height, int FillNumber) {
+void CustomMessagePrinter(std::string message, int width, int height, int FillNumber) {
     // 中间部分
     for (int i = 0; i < height - 2; i++) {
-        cout << "|";
+        std::cout << "|";
         for (int j = 0; j < width - 2; j++) {
             if (i == (height - 2) / 2 && j == (width - 2 - message.length()) / 2) {
-                cout << message;
+                std::cout << message;
                 j += message.length() - FillNumber;
             } else {
-                 cout << " ";
+                 std::cout << " ";
             }
         }
-         cout << "|" <<  endl;
+         std::cout << "|" <<  std::endl;
     }
 }
-void WelecomeMessage() {
+void WelcomeMessage() {
         int width = 100; // 框的宽度
         int height = 5; // 框的高度
 
-        string welcome = "Welcome to \033[95m Kiratu!\033[0m";
-        string infomaition = "A lightweight Digital Audio Workstation (DAW) developed in \033[32mC++ language!\033[0m";
-        string version = "\033[95m Kiratu Cream Cake\033[0m \033[31mBeta Version\033[0m 0.0.1";
+        std::string welcome = "Welcome to \033[95m Kiratu!\033[0m";
+        std::string information = "A lightweight Digital Audio Workstation (DAW) developed in \033[32mC++ language!\033[0m";
+        std::string version = "\033[95m Kiratu Cream Cake\033[0m \033[31mBeta Version\033[0m 0.0.1";
 
     // Print Top Border:
     for (int i = 0; i < width; i++) {
-         cout << "=";
+         std::cout << "=";
     }
-     cout <<  endl;
+     std::cout <<  std::endl;
 
     // Print Middle Part:
-    PrintMessage(welcome, width, height, 10);
-    PrintMessage(infomaition, width, height, 10);
-    PrintMessage(version, width, height, 19);
+    CustomMessagePrinter(welcome, width, height, 10);
+    CustomMessagePrinter(information, width, height, 10);
+    CustomMessagePrinter(version, width, height, 19);
 
-    // Print Bootom Border:
+    // Print Bottom Border:
     for (int i = 0; i < width; i++) {
-         cout << "=";
+         std::cout << "=";
     }
-     cout <<  endl;
+     std::cout <<  std::endl;
 
     // Print The Help Message:
-    cout << "This is Kiratu's Terminal Console. Type \033[1m\"action.help()\"\033[0m for more information.\033[1m\"action.quit()\"\033[0m to exit the KTC(Kiratu's Terminal Console)." << endl;
+    std::cout << "This is Kiratu's Terminal Console. Type \033[1m\"action.help()\"\033[0m for more information.\033[1m\"action.quit()\"\033[0m to exit the KTC(Kiratu's Terminal Console)." << std::endl;
+}
+void CommandHelper() {
+    std::cout << "Commands Helper:" << std::endl
+              << "-\"\033[1maction.quit()\033[0m\"" << ", It's a exit command." << std::endl
+              << "-\"\033[1maction.help()\033[0m\"" << ", Get the more info about the KTC(Kiratu's Terminal Console)'s Commands."<< std::endl
+              << "-\033[1m\"action.add(\033[36mName\033[0m\033[1m)\"\033[0m" <<",to add an Audio Block." << std::endl
+              << "-\033[1m\"action.del(\033[36mName\033[0m\033[1m)\"\033[0m" << ",to delete an Audio Block." << std::endl
+              << "-\033[1m\"action.setpan(\033[36mName\033[0m\033[1m)\"\033[0m" << ",to set the pan of the selected Audio Block." << std::endl
+              << "-\033[1m\"action.setvol(\033[36mName\033[0m\033[1m)\"\033[0m" << ",to set the volume of the selected Audio Block." << std::endl
+              << "-\"\033[1m\033[1maction.status(\033[36mName\033[0m\033[1m)\033[0m\"" << ",to obtain the status information of the selected Audio Block." << std::endl
+              << "Or, You can run " <<"\"\033[1maction.status()\033[0m\"" << " to obtain the status information of all Audio Blocks." << std::endl;
+
 }
 
 // Command Loops:
 void TerminalConsole() {
-    WelecomeMessage();
+    WelcomeMessage();
     while (true) {
-        cout << "\033[1m\033[33mKiratu's Terminal Console\033[0m >> ";
-        string command;
-        cin >> command;
+        // Print the prompt:
+        std::cout << "\033[1m\033[33mKiratu's Terminal Console\033[0m >> ";
+
+        std::string command;
+        std::cin >> command;
         if (command == "action.exit()") {
             break;
         }
         else if (command == "action.help()") {
-            cout << "Commands Helper:" << endl
-                 << "-\"\033[1maction.quit()\033[0m\"" << ", It's a exit command." << endl
-                 << "-\"\033[1maction.help()\033[0m\"" << ", Get the more info about the KTC(Kiratu's Terminal Console)'s Commands."<< endl
-                 << "-\033[1m\"action.add(\033[36mName\033[0m\033[1m)\"\033[0m" <<",to add an Audio Block." << endl
-                 << "-\033[1m\"action.del(\033[36mName\033[0m\033[1m)\"\033[0m" << ",to delete an Audio Block." << endl
-                 << "-\033[1m\"action.setpan(\033[36mName\033[0m\033[1m)\"\033[0m" << ",to set the pan of the selected Audio Block." << endl
-                 << "-\033[1m\"action.setvol(\033[36mName\033[0m\033[1m)\"\033[0m" << ",to set the volume of the selected Audio Block." << endl
-                 << "-\"\033[1m\033[1maction.status(\033[36mName\033[0m\033[1m)\033[0m\"" << ",to obtain the status information of the selected Audio Block." << endl
-                 << "Or, You can run " <<"\"\033[1maction.status()\033[0m\"" << " to obtain the status information of all Audio Blocks." << endl;
-
+            CommandHelper();
         }
-
         else if (command == "action.add()") {
             AudioBlocksAdd();
         }
@@ -90,12 +94,15 @@ void TerminalConsole() {
         else if (command == "action.del()") {
             AudioBlocksDelete();
         }
+        else if (command == "action.rename()") {
+            AudioBlocksRename();
+        }
+
         else {
-            cout << "Command not found." << endl;
+            std::cout << "Command not found." << std::endl;
         }
     }
 }
 
 void TerminalConsoleDebug() {
-
 }

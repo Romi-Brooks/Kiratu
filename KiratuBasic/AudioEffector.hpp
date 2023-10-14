@@ -1,0 +1,8 @@
+//
+// Created by romi on 23-10-1.
+//
+
+#ifndef KIRATU_AUDIOEFFECTOR_HPP
+#define KIRATU_AUDIOEFFECTOR_HPP
+
+#endif //KIRATU_AUDIOEFFECTOR_HPP

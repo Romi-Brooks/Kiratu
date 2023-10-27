@@ -96,9 +96,9 @@ void TerminalConsole() {
         else if (command == "action.status()") {
             AudioBlocksStatus();
         }
-//        else if (command == "action.del()") {
-//            AudioBlocksDelete();
-//        }
+        else if (command == "action.del()") {
+            AudioBlocksDelete();
+        }
         else if (command == "action.rename()") {
             AudioBlocksRename();
         }
@@ -136,9 +136,9 @@ void TerminalConsoleDebug() {
         else if (command == "status()") {
             AudioBlocksStatus();
         }
-//        else if (command == "del()") {
-//            AudioBlocksDelete();
-//        }
+        else if (command == "del()") {
+            AudioBlocksDelete();
+        }
         else if (command == "rename()") {
             AudioBlocksRename();
         }

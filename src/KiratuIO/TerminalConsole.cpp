@@ -7,6 +7,11 @@
 #include "../../lib/KiratuBasic/Core/AudioBlocksActions.hpp"
 #include "../../lib/KiratuIO/LogSystem.hpp"
 
+// Init LogSystem:
+void InitLogSystem() {
+    LogSystem KiratuTerminalConsole;
+    KiratuTerminalConsole.Initialize("Kiratu's Terminal Console Log System has Initialized");
+}
 
 // Welcome Message:
 void CustomMessagePrinter(const std::string& message, int width, int height, int FillNumber) {
@@ -91,9 +96,9 @@ void TerminalConsole() {
         else if (command == "action.status()") {
             AudioBlocksStatus();
         }
-        else if (command == "action.del()") {
-            AudioBlocksDelete();
-        }
+//        else if (command == "action.del()") {
+//            AudioBlocksDelete();
+//        }
         else if (command == "action.rename()") {
             AudioBlocksRename();
         }
@@ -107,11 +112,6 @@ void TerminalConsole() {
 void TerminalConsoleDebug() {
     WelcomeMessage();
 
-    /*
-    Log System Init:
-     */
-    LogSystem Log;
-    Log.Initialize();
 
     while (true) {
         // Print the prompt:
@@ -136,9 +136,9 @@ void TerminalConsoleDebug() {
         else if (command == "status()") {
             AudioBlocksStatus();
         }
-        else if (command == "del()") {
-            AudioBlocksDelete();
-        }
+//        else if (command == "del()") {
+//            AudioBlocksDelete();
+//        }
         else if (command == "rename()") {
             AudioBlocksRename();
         }

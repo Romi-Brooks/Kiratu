@@ -9,8 +9,7 @@
 
 class LogSystem {
 public:
-    void Initialize(){
-        std::string message = "Kiratu Log System Init Success";
+    void Initialize(const std::string& message){
         Info(message);
     }
 

@@ -8,10 +8,19 @@
 // Add AudioBlocks:
 void AudioBlocksAdd() {
     std::string InputBlockName;
-    std::cout << "Name of the new Audio Block:";
+    std::cout << "Name of the new Audio Block(Cannot contain: Spaces,Special Characters):";
     std::cin >> InputBlockName;
+//    判断是否有重复的AudioBlock
+    for (const AudioBlocks& block : Blocks) {
+        if (block.GetBlockName() == InputBlockName) {
+            std::cout << "Audio Block named " << InputBlockName << " already exists" << std::endl;
+            return;
+        }
+    }
     // 创建一个新的音频块对象并存储到向量中
-    AudioBlocks userAudioBlock(InputBlockName);
+    LogSystem logSystem;
+    AudioBlocks userAudioBlock(InputBlockName, 0, 80, logSystem);
+    logSystem.Initialize("For Audio Block named " + InputBlockName + " ,Log System has successfully Initialized");
     Blocks.emplace_back(userAudioBlock);
     std::cout << "Audio Block named " << InputBlockName << " was successfully created" << std::endl;
 }
@@ -26,6 +35,7 @@ void AudioBlocksRename() {
     std::cin >> UserNewBlockName;
 
     for (AudioBlocks &block: Blocks) {
+
         std::cout << "Comparing: " << block.GetBlockName() << " with " << AudioBlockName << std::endl;
         if (block.GetBlockName() == AudioBlockName) {
             std::cout << "Fine: " << AudioBlockName << std::endl;
@@ -78,8 +88,7 @@ void AudioBlocksDelete() {
     std::cout << "Name of the Audio Block:";
     std::cin >> InputBlockName;
     for (int i = 0; i < Blocks.size(); i++) {
-        if (Blocks[i].GetBlockName() == InputBlockName) {
+        if (Blocks[i].GetBlockName() == InputBlockName)
             Blocks.erase(Blocks.begin() + i);
-        }
     }
 }

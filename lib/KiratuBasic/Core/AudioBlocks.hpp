@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "../../KiratuIO/LogSystem.hpp"
 
 class AudioBlocks {
 public:
@@ -16,7 +17,20 @@ public:
         Constructor Function,the name of the Audio Block is required,and more use the explicit to avoid the implicit conversion,
         Maybe more parameters will be added in the future, so leave a note here for now.
     */
-    explicit AudioBlocks(std::string name);
+    explicit AudioBlocks(std::string name, int BlockVol, int BlockPan, LogSystem& logSystem);
+
+    // 复制构造函数
+    AudioBlocks(const AudioBlocks& other) {
+        // 复制成员变量
+    }
+
+    // 复制赋值运算符
+    AudioBlocks& operator=(const AudioBlocks& other) {
+        if (this != &other) {
+            // 复制成员变量
+        }
+        return *this;
+    }
 
     /*
     获取音频块的名称
@@ -63,9 +77,11 @@ public:
 
 
 private:
+//    用于对象初始化
+    LogSystem logSystem;
     std::string BlockName;
-    int BlockVol;
-    int BlockPan;
+    int BlockVol{};
+    int BlockPan{};
 };
 
     /*

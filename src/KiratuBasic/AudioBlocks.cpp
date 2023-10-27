@@ -2,13 +2,17 @@
 // Created by romi on 23-10-1.
 //
 
+
+
 #include <utility>
 
 #include "../../lib/KiratuBasic/Core/AudioBlocks.hpp"
-AudioBlocks::AudioBlocks(std::string name) : BlockName(std::move(name)) {
-    BlockPan = 0;
-    BlockVol = 80;
+AudioBlocks::AudioBlocks( std::string name, int BlockPan, int BlockVol, LogSystem& logSystem) : BlockName(std::move(name)), BlockPan(BlockPan), BlockVol(BlockVol), logSystem(logSystem) {
+    this->BlockPan = BlockPan;
+    this->BlockVol = BlockVol;
+    logSystem.Initialize("Audio Block " + BlockName + " has Initialized");
 }
+
 
 std::string AudioBlocks::GetBlockName() const {
     return BlockName;
@@ -35,6 +39,7 @@ void AudioBlocks::SetPan(int pan) {
 这里用于存放所有的音频块
 EN:This is used to store all audio blocks
  */
+
 std::vector<AudioBlocks> Blocks;
 
 

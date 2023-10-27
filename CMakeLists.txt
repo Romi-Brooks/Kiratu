@@ -23,4 +23,5 @@ add_executable(Kiratu
         src/KiratuBasic/Core/AudioProcesser.hpp
         src/KiratuIO/LogSystem.cpp
         lib/KiratuIO/LogSystem.hpp
+        src/KiratuIO/SystemInit.cpp
 )

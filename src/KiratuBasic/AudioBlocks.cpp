@@ -2,7 +2,7 @@
 // Created by romi on 23-10-1.
 //
 
-#include "AudioBlocks.hpp"
+#include "../../lib/KiratuBasic/Core/AudioBlocks.hpp"
 AudioBlocks::AudioBlocks(const std::string &name) : BlockName(name) {
     BlockPan = 0;
     BlockVol = 80;

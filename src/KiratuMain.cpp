@@ -1,5 +1,5 @@
 #include <iostream>
-#include "KiratuIO/TerminalConsole.hpp"
+#include "../lib/KiratuIO/TerminalConsole.hpp"
 
 int main() {
 //    Start:

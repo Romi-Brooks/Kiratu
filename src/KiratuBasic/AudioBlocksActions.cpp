@@ -2,7 +2,7 @@
 // Created by romi on 10/15/23.
 //
 
-#include "AudioBlocks.hpp"
+#include "../../lib/KiratuBasic/Core/AudioBlocks.hpp"
 
 // Functions:
 // Add AudioBlocks:

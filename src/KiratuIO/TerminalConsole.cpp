@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include "string"
-#include "../KiratuBasic/AudioBlocksActions.hpp"
+#include "../../lib/KiratuBasic/Core/AudioBlocksActions.hpp"
 
 
 // Welcome Message:

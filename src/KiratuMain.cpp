@@ -3,7 +3,7 @@
 
 int main() {
 //    Start:
-    TerminalConsole();
+    TerminalConsoleDebug();
     return 0;
 }
 

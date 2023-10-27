@@ -5,6 +5,7 @@
 #include <iostream>
 #include "string"
 #include "../../lib/KiratuBasic/Core/AudioBlocksActions.hpp"
+#include "../../lib/KiratuIO/LogSystem.hpp"
 
 
 // Welcome Message:
@@ -70,7 +71,6 @@ void TerminalConsole() {
     while (true) {
         // Print the prompt:
         std::cout << "\033[1m\033[33mKiratu's Terminal Console\033[0m >> ";
-
         std::string command;
         std::cin >> command;
         if (command == "action.exit()") {
@@ -106,10 +106,16 @@ void TerminalConsole() {
 
 void TerminalConsoleDebug() {
     WelcomeMessage();
+
+    /*
+    Log System Init:
+     */
+    LogSystem Log;
+    Log.Initialize();
+
     while (true) {
         // Print the prompt:
         std::cout << "\033[1m\033[33mKiratu's Terminal Console \033[31m[Debug]\033[0m >> ";
-
         std::string command;
         std::cin >> command;
         if (command == "exit()") {

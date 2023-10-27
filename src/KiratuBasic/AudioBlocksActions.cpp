@@ -12,7 +12,7 @@ void AudioBlocksAdd() {
     std::cin >> InputBlockName;
     // 创建一个新的音频块对象并存储到向量中
     AudioBlocks userAudioBlock(InputBlockName);
-    Blocks.push_back(std::move(userAudioBlock));
+    Blocks.emplace_back(userAudioBlock);
     std::cout << "Audio Block named " << InputBlockName << " was successfully created" << std::endl;
 }
 
@@ -24,8 +24,11 @@ void AudioBlocksRename() {
     std::cin >> AudioBlockName;
     std::cout << "New Name of the Audio Block:";
     std::cin >> UserNewBlockName;
+
     for (AudioBlocks &block: Blocks) {
-        if (block.Status() == AudioBlockName) {
+        std::cout << "Comparing: " << block.GetBlockName() << " with " << AudioBlockName << std::endl;
+        if (block.GetBlockName() == AudioBlockName) {
+            std::cout << "Fine: " << AudioBlockName << std::endl;
             block.SetName(UserNewBlockName);
         }
     }
@@ -40,7 +43,7 @@ void AudioBlocksSetVol() {
     std::cout << "Volume of the Audio Block:";
     std::cin >> InputBlockVol;
     for (AudioBlocks& block : Blocks) {
-        if (block.Status() == InputBlockName) {
+        if (block.GetBlockName() == InputBlockName) {
             block.SetVol(InputBlockVol);
         }
     }
@@ -55,7 +58,7 @@ void AudioBlocksSetPan() {
     std::cout << "Pan of the Audio Block:";
     std::cin >> InputBlockPan;
     for (AudioBlocks& block : Blocks) {
-        if (block.Status() == InputBlockName) {
+        if (block.GetBlockName() == InputBlockName) {
             block.SetPan(InputBlockPan);
         }
     }
@@ -75,7 +78,7 @@ void AudioBlocksDelete() {
     std::cout << "Name of the Audio Block:";
     std::cin >> InputBlockName;
     for (int i = 0; i < Blocks.size(); i++) {
-        if (Blocks[i].Status() == InputBlockName) {
+        if (Blocks[i].GetBlockName() == InputBlockName) {
             Blocks.erase(Blocks.begin() + i);
         }
     }

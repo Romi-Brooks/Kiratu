@@ -8,7 +8,7 @@
 
 
 // Welcome Message:
-void CustomMessagePrinter(std::string message, int width, int height, int FillNumber) {
+void CustomMessagePrinter(const std::string& message, int width, int height, int FillNumber) {
     // 中间部分
     for (int i = 0; i < height - 2; i++) {
         std::cout << "|";
@@ -105,4 +105,40 @@ void TerminalConsole() {
 }
 
 void TerminalConsoleDebug() {
+    WelcomeMessage();
+    while (true) {
+        // Print the prompt:
+        std::cout << "\033[1m\033[33mKiratu's Terminal Console \033[31m[Debug]\033[0m >> ";
+
+        std::string command;
+        std::cin >> command;
+        if (command == "exit()") {
+            break;
+        }
+        else if (command == "help()") {
+            CommandHelper();
+        }
+        else if (command == "add()") {
+            AudioBlocksAdd();
+        }
+        else if (command == "setvol()") {
+            AudioBlocksSetVol();
+        }
+        else if (command == "setpan()") {
+            AudioBlocksSetPan();
+        }
+        else if (command == "status()") {
+            AudioBlocksStatus();
+        }
+        else if (command == "del()") {
+            AudioBlocksDelete();
+        }
+        else if (command == "rename()") {
+            AudioBlocksRename();
+        }
+
+        else {
+            std::cout << "Command not found." << std::endl;
+        }
+    }
 }
